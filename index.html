@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Page</title>
+    <!-- FontAwesome CDN for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+        .left, .right {
+            flex: 1 1 300px;
+            padding: 30px;
+        }
+        .right {
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .social-icons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            margin: 0 10px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .facebook {
+            background-color: #3b5998;
+        }
+        .twitter {
+            background-color: #1da1f2;
+        }
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .checkbox-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .checkbox-forgot label {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-forgot input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        button.signin-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(to right, #ec4899, #f97316);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button.signin-btn:hover {
+            background: linear-gradient(to right, #f97316, #ec4899);
+        }
+        .right h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .right p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        button.signup-btn {
+            padding: 10px 30px;
+            border: 2px solid white;
+            border-radius: 25px;
+            background: transparent;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        button.signup-btn:hover {
+            background: white;
+            color: #f97316;
+        }
+        @media (max-width: 700px) {
+            .container {
+                flex-direction: column;
+            }
+            .left, .right {
+                flex: 1 1 100%;
+                padding: 20px;
+            }
+            form {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            if (username === '' || password === '') {
+                alert('Please fill in both username and password fields.');
+                return false;
+            }
+            alert('Login successful!');
+            // Normally, form submission or further processing would happen here
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h2>Sign In</h2>
+            <div class="social-icons">
+                <a href="#" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <form onsubmit="validateForm(event)">
+                <input type="text" id="username" placeholder="Username" />
+                <input type="password" id="password" placeholder="Password" />
+                <div class="checkbox-forgot">
+                    <label><input type="checkbox" /> Remember Me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="signin-btn">Sign In</button>
+            </form>
+        </div>
+        <div class="right">
+            <h1>Welcome to login</h1>
+            <p>Don't have an account?</p>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </div>
+</body>
+</html>
